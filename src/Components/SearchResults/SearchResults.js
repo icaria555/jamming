@@ -3,7 +3,7 @@ import './SearchResults.css';
 
 import TrackList from '../TrackList/TrackList';
 
-function SearchResults() {
+function SearchResults(props) {
     return (
         <div className="SearchResults">
             <h2>Results</h2>

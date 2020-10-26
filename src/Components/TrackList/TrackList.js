@@ -3,10 +3,10 @@ import './TrackList.css';
 
 import Track from '../Track/Track';
 
-function TrackList() {
-    const tracks = props.tracks.map((track) => {
+function TrackList(props) {
+    const tracks = props.tracks.map((track) => 
         <Track track={track}/>
-    });
+    );
 
     return (
         <div className="TrackList">
