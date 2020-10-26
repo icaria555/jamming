@@ -5,7 +5,7 @@ import Track from '../Track/Track';
 
 function TrackList(props) {
     const tracks = props.tracks.map((track) => 
-        <Track track={track}/>
+        <Track track={track} onAdd={props.onAdd} />
     );
 
     return (
