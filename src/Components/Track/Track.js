@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import './Track.css';
 
 function Track() {
+    renderAction(() => {
+        return (
+            <button className={isRemoval ? '' : 'Track-action'}>{(isRemoval ? '+' : '-')}</button>
+        );
+    });
+
     return (
-        <div className="Track">
+        <div className="Track" key={props.track.id}>
             <div className="Track-information">
-                <h3>{/*<!-- track name will go here -->*/}</h3>
-                <p>{/*<!-- track artist will go here--> | <!-- track album will go here -->*/}</p>
+                <h3>{props.track.name}</h3>
+                <p>{props.track.artist + ' | ' + props.track.album}</p>
             </div>
-            <button className="Track-action">{/*<!-- + or - will go here -->*/}</button>
+            <button className={isRemoval ? '' : 'Track-action'}>{(isRemoval ? '+' : '-')}</button>
         </div>
     )
 }
