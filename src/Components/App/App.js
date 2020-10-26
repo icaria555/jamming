@@ -3,12 +3,19 @@ import logo from '../../logo.svg';
 import './App.css';
 
 import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
 
 function App() {
   const [count, setCount]  = useState(0);
   const [searchResults, setSearchResults] = useState([]);
-  const playlistName = ['a', 'b', 'c'];
-  const playlistTracks = [{name:'a01', artist:'art01', album:"alb01", id:01}, {name:'a02', artist:'art02', album:"alb02", id:02}]
+  const [playlistName, setPlaylistName]  = useState(['a', 'b', 'c']);
+  const [playlistTracks, setPlaylistTracks] = useState([{name:'a01', artist:'art01', album:"alb01", id:01}, 
+                                                        {name:'a02', artist:'art02', album:"alb02", id:02}]);
+  addTrack((track) => {
+    if(playlistTracks.findIndex(t => t.id == track.id) === -1) {
+      setPlaylistTracks([playlistTracks, track]);
+    }
+  });
 
   useEffect(() => {
     console.log(`You clicked ${count} times`);
@@ -20,8 +27,8 @@ function App() {
       <div className="App">
         {/*<!-- Add a SearchBar component -->*/}
         <div className="App-playlist">
-          <SearchResults searchResults={searchResults}/>
-          {/*<!-- Add a Playlist component -->*/}
+          <SearchResults searchResults={searchResults} />
+          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} />
         </div>
       </div>
     </div>

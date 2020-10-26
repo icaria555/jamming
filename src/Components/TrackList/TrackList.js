@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Track from '../Track/Track';
 import './TrackList.css';
+
+import Track from '../Track/Track';
 
 function TrackList() {
     const tracks = props.tracks.map((track) => {
