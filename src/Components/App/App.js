@@ -8,7 +8,7 @@ import Playlist from '../Playlist/Playlist';
 function App() {
   const [count, setCount]  = useState(0);
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlaylistName]  = useState(['a', 'b', 'c']);
+  const [playlistName, setPlaylistName]  = useState('Playlist 01');
   const [playlistTracks, setPlaylistTracks] = useState([{name:'a01', artist:'art01', album:"alb01", id:1}, 
                                                         {name:'a02', artist:'art02', album:"alb02", id:2}]);
   const addTrack = (track) => {
@@ -24,6 +24,10 @@ function App() {
     setPlaylistTracks(newPlaylistTrack);
   };
 
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name)
+  };
+
   useEffect(() => {
     console.log(`You clicked ${count} times`);
   });
@@ -35,7 +39,8 @@ function App() {
         {/*<!-- Add a SearchBar component -->*/}
         <div className="App-playlist">
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
-          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} onRemove={removeTrack} />
+          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} 
+                    onRemove={removeTrack} onNameChange={updatePlaylistName} />
         </div>
       </div>
     </div>
