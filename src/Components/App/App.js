@@ -28,6 +28,10 @@ function App() {
     setPlaylistName(name)
   };
 
+  const savePlaylist = () => {
+    const trackURLs = playlistTracks;
+  }
+
   useEffect(() => {
     console.log(`You clicked ${count} times`);
   });
@@ -40,7 +44,8 @@ function App() {
         <div className="App-playlist">
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
           <Playlist playlistName={playlistName} playlistTracks={playlistTracks} 
-                    onRemove={removeTrack} onNameChange={updatePlaylistName} />
+                    onRemove={removeTrack} onNameChange={updatePlaylistName}
+                    onSave={savePlaylist} />
         </div>
       </div>
     </div>
