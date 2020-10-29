@@ -32,6 +32,10 @@ function App() {
     const trackURLs = playlistTracks;
   }
 
+  const search = (term) => {
+    console.log(term);
+  }
+
   useEffect(() => {
     console.log(`You clicked ${count} times`);
   });
@@ -42,7 +46,7 @@ function App() {
       <div className="App">
         {/*<!-- Add a SearchBar component -->*/}
         <div className="App-playlist">
-          <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          <SearchResults searchResults={searchResults} onAdd={addTrack} onSearch={search} />
           <Playlist playlistName={playlistName} playlistTracks={playlistTracks} 
                     onRemove={removeTrack} onNameChange={updatePlaylistName}
                     onSave={savePlaylist} />
