@@ -22,7 +22,7 @@ const Spotify = {
                 (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
                 '&redirect_uri=' + encodeURIComponent(redirect_uri) +
                 '&response_type=token';
-            window.location = loginUrl;
+            window.location.href  = loginUrl;
         }
     },
     search: (term) => {
